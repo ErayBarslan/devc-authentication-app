@@ -15,6 +15,7 @@ app.use(
 		name: "session",
 		keys: ["keys"],
 		maxAge: 24 * 60 * 60 * 100,
+		sameSite: "none"
 	})
 );
 
@@ -31,8 +32,8 @@ app.use(
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', 'https://devc-authentication-app.netlify.app');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,UPDATE,OPTIONS');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,PATCH,DELETE,UPDATE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   next();
 });
