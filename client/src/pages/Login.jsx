@@ -87,8 +87,8 @@ const Login = () => {
       <p>or continue with these social profile</p>
 
       <div className='socials-container'>
-        <a href="http://localhost:5000/api/auth/google/redirect" aria-label="google"><img src="/Google.svg" alt="" /></a>
-        <a href="http://localhost:5000/api/auth/github/redirect" aria-label="google"><img src="/Gihub.svg" alt="" /></a>
+        <a href="https://devc-authentication-app-api.onrender.com/api/auth/google/redirect" aria-label="google"><img src="/Google.svg" alt="" /></a>
+        <a href="https://devc-authentication-app-api.onrender.com/api/auth/github/redirect" aria-label="google"><img src="/Gihub.svg" alt="" /></a>
       </div>
 
       <p>Don't have an account yet?<Link to="/signup" className='link' >Register</Link></p>
