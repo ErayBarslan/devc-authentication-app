@@ -11,19 +11,6 @@ require('dotenv').config()
 app.use(express.json({ limit: "10mb" }))
 
 app.use(
-	cookieSession({
-		name: "session",
-		keys: ["keys"],
-		maxAge: 24 * 60 * 60 * 100,
-		sameSite: "none",
-		secure: true
-	})
-);
-
-app.use(passport.initialize())
-app.use(passport.session())
-
-app.use(
 	cors({
 		origin: ["https://devc-authentication-app.netlify.app", "https://devc-authentication-app.netlify.app/redirect/google", "https://devc-authentication-app.netlify.app/redirect/github"],
 		methods: "GET,POST,PUT,DELETE",
@@ -38,6 +25,19 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   next();
 });
+
+app.use(
+	cookieSession({
+		name: "session",
+		keys: ["keys"],
+		maxAge: 24 * 60 * 60 * 100,
+		sameSite: "none",
+		secure: true
+	})
+);
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.get('/', (req, res) => res.send('Authentication App API'))
 
