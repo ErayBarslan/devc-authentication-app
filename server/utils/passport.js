@@ -7,7 +7,7 @@ const User = require('../models/User')
 passport.use(new GoogleStrategy({
 	clientID: process.env.GOOGLE_CLIENT_ID,
 	clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-	callbackURL: "/api/auth/google/redirect",
+	callbackURL: "https://devc-authentication-app-api.onrender.com/api/auth/google/redirect",
 	scope: ["profile", "email"]
 }, (accessToken, refreshToken, profile, done) => {
 
@@ -34,7 +34,7 @@ passport.use(new GoogleStrategy({
 passport.use(new GitHubStrategy({
 	clientID: process.env.GITHUB_CLIENT_ID,
 	clientSecret: process.env.GITHUB_CLIENT_SECRET,
-	callbackURL: "/api/auth/github/redirect",
+	callbackURL: "https://devc-authentication-app-api.onrender.com/api/auth/github/redirect",
 	scope: ["profile", "email"]
 }, (accessToken, refreshToken, profile, done) => {
 	
