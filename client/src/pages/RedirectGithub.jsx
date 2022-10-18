@@ -13,9 +13,11 @@ const Redirect = () => {
 
     try {
       const res = await fetch(`/api/login`, {
+        method: 'POST',
         headers: {
           'api-key': process.env.REACT_APP_API_KEY
         },
+        body: "asd"
       });
       const data = await res.json();
 
