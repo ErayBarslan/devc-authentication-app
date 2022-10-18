@@ -23,7 +23,7 @@ app.use(passport.session())
 
 app.use(
 	cors({
-		origin: true,
+		origin: ["https://devc-authentication-app.netlify.app", "https://devc-authentication-app.netlify.app/redirect/google", "https://devc-authentication-app.netlify.app/redirect/github"],
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
@@ -34,11 +34,11 @@ app.get('/', (req, res) => res.send('Authentication App API'))
 app.use(`/api`, userRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log('listening...')
-    })
-  })
-  .catch(error => console.log(error))
+	.then(() => {
+		app.listen(process.env.PORT, () => {
+			console.log('listening...')
+		})
+	})
+	.catch(error => console.log(error))
 
 module.exports = app
