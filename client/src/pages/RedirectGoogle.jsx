@@ -16,7 +16,7 @@ const Redirect = () => {
       const res = await fetch(`/api/auth/google/login`, {
         withCredentials: true,
         headers: {
-          'api-key': 'somuchsecret'
+          'api-key': process.env.REACT_APP_API_KEY
         },
       });
       const data = await res.json();
