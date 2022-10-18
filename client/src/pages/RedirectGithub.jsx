@@ -20,6 +20,7 @@ const Redirect = () => {
       });
       const data = await res.json();
 
+      console.log(data)
       // save user to local storage
       localStorage.setItem('user', JSON.stringify(data))
       // update auth context
