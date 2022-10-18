@@ -23,7 +23,7 @@ app.use(passport.session())
 
 app.use(
 	cors({
-		origin: "https://devc-authentication-app.netlify.app",
+		origin: true,
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
