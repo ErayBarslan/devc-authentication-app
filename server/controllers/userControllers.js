@@ -61,15 +61,19 @@ const loginGoogle = async (req, res) => {
 const authGithub = passport.authenticate("github", ["profile", "email"])
 
 const loginGithub = async (req, res) => {
-  const user = await User.findOne({ githubid: req.user.githubid })
+  try {
+    const user = await User.findOne({ githubid: req.user.githubid })
 
-  const token = createToken(user._id)
+    const token = createToken(user._id)
 
-  if (req.user) {
-    res.status(200).json({ user, token })
-  }
-  else {
-    res.status(403).json({ error: "Authentication failed, please try again." })
+    if (req.user) {
+      res.status(200).json({ user, token })
+    }
+    else {
+      res.status(403).json({ error: "Authentication failed, please try again." })
+    }
+  } catch (error) {
+    res.status(403).json({ error: error })
   }
 }
 //GITHUB

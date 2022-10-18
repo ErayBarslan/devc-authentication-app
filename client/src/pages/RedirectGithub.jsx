@@ -12,12 +12,11 @@ const Redirect = () => {
     setError(null)
 
     try {
-      const res = await fetch(`/api/login`, {
-        method: 'POST',
+      const res = await fetch(`/api/auth/github/login`, {
+        withCredentials: true,
         headers: {
           'api-key': process.env.REACT_APP_API_KEY
         },
-        body: "asd"
       });
       const data = await res.json();
 
