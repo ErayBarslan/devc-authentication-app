@@ -7,7 +7,6 @@ import { vars } from '../styles/Global'
 const Redirect = () => {
   const { dispatch } = useAuthContext()
   const [error, setError] = useState(null)
-  const [sleep, setSleep] = useState(false)
 
   const fetchUser = async () => {
     setError(null)
@@ -29,6 +28,8 @@ const Redirect = () => {
       // console.clear()
     } catch (error) {
       // console.clear()
+      console.log(error)
+      setError(".")
     }
   }
 
@@ -36,20 +37,10 @@ const Redirect = () => {
     fetchUser()
   }, [])
 
-  useEffect(() => {
-    setTimeout(setSleep(true), 5000)
-  }, [])
-
   if (!error) {
-    if (sleep) {
-      return (<>
-        <LoadingEffect />
-      </>)
-    }
-
-    return (
+    return (<>
       <LoadingEffect />
-    )
+    </>)
   }
   else {
     return <Navigate to="/login" />
