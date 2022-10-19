@@ -15,6 +15,9 @@ const Redirect = () => {
       const res = await fetch(`/api/auth/github/login`, {
         method: 'get',
         credentials: 'include',
+        withCredentials: true,
+        crossDomain: true,
+        xhrFields: { withCredentials: true },
         headers: {
           'api-key': process.env.REACT_APP_API_KEY
         },
